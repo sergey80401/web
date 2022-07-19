@@ -1,4 +1,14 @@
 #!/bin/bash
-mkdir /home/box/web/public
-mkdir /home/box/web/uploads
-mkdir /home/box/web/etc
+cd /home/box
+mkdir web
+cd web
+mkdir public uploads etc
+cd public
+mkdir img css js
+
+sudo su
+
+mv nginx.conf /home/box/web/etc/nginx.conf
+
+ln -sf /home/box/web/etc/nginx.conf /etc/nginx/sites-enabled/default
+/etc/init.d/nginx restart
